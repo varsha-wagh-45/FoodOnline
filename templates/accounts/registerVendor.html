@@ -17,18 +17,19 @@
           <div class="user-dashboard loader-holder">
             <div class="user-holder">
               <h4 class="text-center" style="margin-bottom: 0">
-                WELCOME TO FOODONLINE
+                PARTNER WITH FOODONLINE
               </h4>
               <p class="text-center">
-                Please fill this form to get yourself onboarded in the
-                foodOnline marketplace.
+                Register your restaurant with foodOnline marketplace and get
+                more customers.
               </p>
               <hr />
               <div id="restaurant-sets-holder">
                 <form
-                  action="{% url 'registerUser' %}"
+                  action="{% url 'registerVendor' %}"
                   class="form-fields-set foodbakery-dev-restaurant-form"
                   method="post"
+                  enctype="multipart/form-data"
                 >
                   {% csrf_token %}
                   <ul
@@ -52,6 +53,22 @@
                                 >
                                   <div class="field-holder">
                                     <label>Last name</label>{{form.last_name}}
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                >
+                                  <div class="field-holder">
+                                    <label>Restaurant name</label
+                                    >{{v_form.vendor_name}}
+                                  </div>
+                                </div>
+                                <div
+                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                                >
+                                  <div class="field-holder">
+                                    <label>Restaurant License</label
+                                    >{{v_form.vendor_license}}
                                   </div>
                                 </div>
 
@@ -95,13 +112,13 @@
                       </div>
                     </li>
                     <li>
-                       {% for field in form %} 
-                           {% if field.errors %}
-                             {% for error in field.errors %}
-                                   <li style="color: red">{{error}}</li>
-                             {% endfor %}
-                           {% endif %} 
-                       {% endfor %}
+                      {% for field in form %} 
+                          {% if field.errors %} 
+                            {% for error in field.errors %}
+                              <li style="color: red">{{error}}</li>
+                            {% endfor %} 
+                          {% endif %} 
+                      {% endfor %}
                         
 
                         <li style="color: red">{{form.non_field_errors}}</li>
