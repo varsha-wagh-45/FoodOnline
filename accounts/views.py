@@ -3,6 +3,7 @@ from email import message
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from vendor.forms import VendorForm
+from vendor.models import Vendor
 from .forms import UserForm
 from .models import User, UserProfile
 from django.contrib import messages,auth
@@ -56,7 +57,7 @@ def registerUser(request):
         #send verifiaction email
         mail_subject= 'please activate your account'
         email_template='accounts/emails/account_verifiaction_email.html'
-        send_verification_email(request, user,mail_subject, email_template)
+        send_verification_email(request, user, mail_subject, email_template)
         messages.success(request,'your account has been registered succesfully')
         return redirect('registerUser')
       else:
@@ -176,7 +177,6 @@ def custDashboard(request):
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def vendorDashboard(request):
-
     return render(request,'accounts/vendorDashboard.html')
 
 
