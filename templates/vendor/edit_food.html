@@ -19,25 +19,53 @@
 				<hr>
         <button class="btn btn-secondary" onclick="history.back()"><i class="fa fa-angle-left" area-hidden="true"></i>Back</button>
            <br><br>     
-        <h6>Edit Category</h6>
-                  <form action="{% url 'edit_category'  category.id %}" method="POST">
+        <h6>Edit Food Item</h6>
+                  <form action="{% url 'edit_food'  food.id %}" method="POST"  enctype="multipart/form">
                     {% csrf_token %}
-                    <div class="form-fields-set">
+                      <div class="form-fields-set">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="field-holder">
-                                                <label >Category Name *</label>
-                                                {{form.category_name}}
+                                                <label >Food Title *</label>
+                                                {{form.food_title}}
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="field-holder">
+                                                <label >Category*</label>
+                                                {{form.category}}
+                                            </div>
+                                        </div>
+                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="field-holder">
                                                 <label >Description</label>
                                                 {{form.description}}
                                             </div>
                                         </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="field-holder">
+                                                <label >Price*</label>
+                                                {{form.price}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="field-holder">
+                                                <label >Image</label>
+                                                {{form.image}}
+                                                
+                                                <img src="{{ food.image.url }}" alt="Food Image" width="100" class="mt-2">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="field-holder">
+                                                <label >Is Available</label>
+                                                {{form.is_available}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                
                                 
 
                                 {% for field in form %}
@@ -48,7 +76,7 @@
                                     {% endif %}
                                 {% endfor %}
                                  <button type="submit" class="btn btn-info"><i class="fa fa-check" aria-hidden="true"></i> Update</button>
-                                 <a href="{% url 'delete_category' category.id %}" onclick="return confirm('Are You Sure You Want To Delete This Category?')"class='btn btn-danger'><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
+                                 <a href="{% url 'delete_food' food.id %}" onclick="return confirm('Are You Sure You Want To Delete This Food?')"class='btn btn-danger'><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
                   </form>
                 
             

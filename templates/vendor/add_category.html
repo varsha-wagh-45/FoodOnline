@@ -17,7 +17,9 @@
             <div class="user-holder">
               	<h5 clas="text-uppercase">Build Your Food Menu</h5>
 				<hr>
-                <h6>Add New Category</h6>
+        <button class="btn btn-secondary" onclick="history.back()"><i class="fa fa-angle-left" area-hidden="true"></i>Back</button>
+         <br><br>       
+        <h6>Add New Category</h6>
                   <form action="{% url 'add_category' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-fields-set">
