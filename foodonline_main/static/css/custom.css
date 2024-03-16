@@ -27,3 +27,8 @@
   font-size: 12px;
   cursor: pointer;
 }
+ .delivery-timing {
+    float: right; /* Float the element to the right */
+    margin-left: auto; /* Auto margin on the left side to push it to the right */
+}
+
