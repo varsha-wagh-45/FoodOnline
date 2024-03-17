@@ -31,4 +31,6 @@
     float: right; /* Float the element to the right */
     margin-left: auto; /* Auto margin on the left side to push it to the right */
 }
-
+.main-search.fancy.field-holder input[type="text"]{
+  color:#000000 !important;
+}
