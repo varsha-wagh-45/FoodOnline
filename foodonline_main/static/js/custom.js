@@ -70,7 +70,7 @@ $(document).ready(function () {
 
           applyCartAmounts(
             response.cart_amount["subtotal"],
-            response.cart_amount["tax"],
+            response.cart_amount["tax_dict"],
             response.cart_amount["grand_total"]
           );
 
@@ -105,7 +105,7 @@ $(document).ready(function () {
 
           applyCartAmounts(
             response.cart_amount["subtotal"],
-            response.cart_amount["tax"],
+            response.cart_amount["tax_dict"],
             response.cart_amount["grand_total"]
           );
 
