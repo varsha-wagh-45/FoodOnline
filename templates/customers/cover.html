@@ -11,7 +11,7 @@
               <div class="img-holder">
                 <figure>
                   {% if user_profile.profile_picture %}
-                   <img src={{ "user_profile.profile_picture.url" }} alt="profile Picture">
+                   <img src="{{ user_profile.profile_picture.url}}" alt="profile Picture">
                   {% else %}
                   <img src="{% static 'extra-images/listing-logo18.png' %}" alt="" />
                   {% endif %}
@@ -20,7 +20,7 @@
               <div class="text-holder">
                 <span class="restaurant-title">{{user.first_name}}  {{user.last_name}}</span>
                 <div class="text">
-                  <i class="icon-location"></i>
+                  <i class="icon-phone"></i>
                   <p>{{ user.phone_number}}</p>
                 </div>
               </div>
