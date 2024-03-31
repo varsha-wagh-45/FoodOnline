@@ -60,7 +60,7 @@ def registerUser(request):
         mail_subject= 'please activate your account'
         email_template='accounts/emails/account_verifiaction_email.html'
         send_verification_email(request, user, mail_subject, email_template)
-        messages.success(request,'your account has been registered succesfully')
+        messages.success(request,'your account has been registered succesfully! Please wait for the approval.')
         return redirect('registerUser')
       else:
          print('invalid form')
